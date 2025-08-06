@@ -58,5 +58,5 @@ def upload_image(request):
             "text": extracted_text,
             "filename": filename,
         }
-        return render(request, "ocr_app/index.html", context)
-    return render(request, "ocr_app/index.html")
+        return render(request, "templates/ocr_app/index.html", context)
+    return render(request, "templates/ocr_app/index.html")
