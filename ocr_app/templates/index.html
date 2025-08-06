@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OCR Web App</title>
+    <link rel="stylesheet" href="{% static 'ocr_app/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>OCR Text Extraction</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="file" name="image" id="image" accept=".jpg,.png,.jpeg">
+            <button type="submit">Upload & Extract</button>
+        </form>
+        {% if text %}
+        <div class="result">
+            <h2>Extracted Text:</h2>
+            <pre>{{ text }}</pre>
+            <button onclick="copyText()">Copy Text</button>
+            <a href="/media/{{ filename }}" download>Download Image</a>
+        </div>
+        {% endif %}
+    </div>
+    <script src="{% static 'ocr_app/script.js' %}"></script>
+</body>
+</html>
