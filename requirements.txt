@@ -2,3 +2,4 @@ Django==4.2
 opencv-python
 Pillow
 pytesseract
+gunicorn==20.1.0
